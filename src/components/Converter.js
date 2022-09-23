@@ -15,8 +15,9 @@ const StyledTypography = styled(Typography)({
 });
 
 const StyledTextArea = styled(TextareaAutosize)({
-  borderRadius: 8,
+  borderRadius: 16,
   padding: 12,
+  borderWidth: 1,
   fontSize: "1.25rem",
   fontFamily: "roboto",
   width: "50vw",
@@ -25,6 +26,10 @@ const StyledTextArea = styled(TextareaAutosize)({
   backgroundColor: "rgba(0,0,0,0.95)",
   "&:hover": {
     color: "white",
+    borderColor: "white",
+  },
+  "&:focus": {
+    outline: "none",
     borderColor: "white",
   },
 });
