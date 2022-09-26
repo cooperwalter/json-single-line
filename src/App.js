@@ -3,6 +3,7 @@ import React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Converter from "./components/Converter";
 import Header from "./components/Header";
+import colors from "./colors";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <CssBaseline />
       <div
         css={{
-          backgroundColor: "rgba(0,0,0,0.87)",
+          backgroundColor: colors.background,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
