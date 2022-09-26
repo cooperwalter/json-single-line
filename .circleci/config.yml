@@ -19,7 +19,6 @@ jobs:
           name: Build and push Docker image
           command: |
             docker build -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG .
-            echo $DOCKERHUB_PASSWORD | docker login -u $DOCKER_LOGIN --password-stdin
             docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG
       - run:
           name: Deploy app to Digital Ocean Server via Docker
