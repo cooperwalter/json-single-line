@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
 import Converter from "./components/Converter";
 import Header from "./components/Header";
 
