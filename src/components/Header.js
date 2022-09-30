@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import { Typography } from "@mui/material";
 import FadeInOut from "./FadeInOut";
+import Typography from "./Typography";
 
 const Header = () => {
   return (
-    <header css={{ padding: 20, alignItems: "flex-start", width: "100%" }}>
+    <header class="w-full items-start p-4">
       <FadeInOut transition={{ type: "spring", duration: 2.5 }} visible>
-        <Typography variant="h4" css={{ color: "white" }}>
+        <Typography class="text-white text-4xl" variant="h4">
           JSON Single-Line Converter
         </Typography>
       </FadeInOut>
