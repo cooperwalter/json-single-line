@@ -24,4 +24,5 @@ jobs:
       - run:
           name: Deploy app to Digital Ocean Server via Docker
           command: |
-            ssh -o StrictHostKeyChecking=no $HOST_SERVER "/bin/bash scripts/deploy_app.sh $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG"
+            ls |
+            ssh -o StrictHostKeyChecking=no $HOST_SERVER "/bin/bash ./scripts/deploy_app.sh $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG"
