@@ -22,7 +22,10 @@ jobs:
             echo "$DOCKERHUB_PASSWORD" | docker login --username $DOCKERHUB_USERNAME --password-stdin
             docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG
       - run:
+          name: Show directory contents
+          command: ls -la
+      - run:
           name: Deploy app to Digital Ocean Server via Docker
           command: |
-            ls |
-            ssh -o StrictHostKeyChecking=no $HOST_SERVER "/bin/bash ./scripts/deploy_app.sh $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG"
+            scp ./scripts/deploy_app.sh $HOST_SERVER:/app
+            ssh -o StrictHostKeyChecking=no $HOST_SERVER "/bin/bash /app/deploy_app.sh $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG"
