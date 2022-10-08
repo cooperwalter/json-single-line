@@ -15,11 +15,11 @@ jobs:
             echo 'export IMAGE_NAME=json-single-line-converter-image' >> $BASH_ENV
       - setup_remote_docker:
           docker_layer_caching: true
-      - run:
-          name: Install Docker (If not already installed)
-          command: |
-            scp ./scripts/install_docker.sh $HOST_USER@$HOST_SERVER:/app
-            ssh -o StrictHostKeyChecking=no $HOST_USER@$HOST_SERVER "chmod +x /app/install_docker.sh && /app/install_docker.sh"
+      # - run:
+      #     name: Install Docker (If not already installed)
+      #     command: |
+      #       scp ./scripts/install_docker.sh $HOST_USER@$HOST_SERVER:/app
+      #       ssh -o StrictHostKeyChecking=no $HOST_USER@$HOST_SERVER "chmod +x /app/install_docker.sh && /app/install_docker.sh"
       - run:
           name: Build and push Docker image
           command: |
