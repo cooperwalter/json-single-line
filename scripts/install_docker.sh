@@ -5,7 +5,7 @@
 # NOTE: This script is intended to be fully executed *once* in the remote host for this project.
 
 # check if Docker is already installed. If so, skip this script
-missing=$(service docker status | grep "unrecognized service")
+missing=$((service docker status) 2>&1)
 if [ !$missing ]
 then
     echo "Docker is already installed. Skipping this script."
