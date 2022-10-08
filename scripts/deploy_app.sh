@@ -2,7 +2,7 @@
 ########################################
 # Put this on a Server
 # run chmod +x deploy_app.sh to make the script executable
-# 
+#
 # Execute this script:  ./deploy_app.sh $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG
 # Replace the $TAG with the actual Build Tag you want to deploy
 #
@@ -23,7 +23,7 @@ echo "Deploying $CONTAINER_NAME to Docker Container"
 
 #Check for running container & stop it before starting a new one
 if [ $(docker inspect -f '{{.State.Running}}' $CONAINER_NAME) = "true" ]; then
-    docker stop hello_world
+    docker stop $CONAINER_NAME
 fi
 
 echo "Starting $CONTAINER_NAME using Docker Image name: $DOCKER_IMAGE"
