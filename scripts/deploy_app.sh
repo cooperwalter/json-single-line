@@ -11,6 +11,7 @@
 set -e
 
 DOCKER_IMAGE=$1
+CONAINER_NAME="json-single-line-converter-container"
 
 # Check for arguments
 if [[ $# -lt 1 ]] ; then
@@ -22,7 +23,7 @@ echo "Deploying $CONTAINER_NAME to Docker Container"
 
 #Check for running container and stop it before starting a new one
 if [ $(docker inspect -f '{{.State.Running}}' $CONTAINER_NAME 2> /dev/null) = "true" ]; then
-    docker stop $CONAINER_NAME
+    docker stop $CONTAINER_NAME
 fi
 
 echo "Starting $CONTAINER_NAME using Docker Image name: $DOCKER_IMAGE"
