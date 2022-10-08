@@ -16,6 +16,11 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
+          name: Install Docker (If not already installed)
+          command: |
+            scp ./scripts/install_docker.sh $HOST_USER@$HOST_SERVER:/app
+            ssh -o StrictHostKeyChecking=no $HOST_USER@$HOST_SERVER "chmod +x /app/install_docker.sh && /app/install_docker.sh"
+      - run:
           name: Build and push Docker image
           command: |
             docker build -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG .
@@ -29,4 +34,6 @@ jobs:
           command: |
             ssh -o StrictHostKeyChecking=no $HOST_USER@$HOST_SERVER "mkdir /app 2> /dev/null"
             scp ./scripts/deploy_app.sh $HOST_USER@$HOST_SERVER:/app
+            ssh -o StrictHostKeyChecking=no $HOST_USER@$HOST_SERVER "chmod +x /app/deploy_app.sh"
+            ssh -o StrictHostKeyChecking=no $HOST_USER@$HOST_SERVER "service docker start"
             ssh -o StrictHostKeyChecking=no $HOST_USER@$HOST_SERVER "/bin/bash /app/deploy_app.sh $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG"
