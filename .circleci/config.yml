@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: Check SSH Connection
-          command: ssh -o StrictHostKeyChecking=no $HOST_USER@$SSH_HOSTNAME "echo Hello World"
+          command: ssh -o StrictHostKeyChecking=no $HOST_USER@$HOST_SERVER "echo Hello World"
       - run:
           name: Setup VirtualEnv
           command: |
