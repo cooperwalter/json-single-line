@@ -9,6 +9,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Check SSH Connection
+          command: ssh -o StrictHostKeyChecking=no $HOST_USER@$SSH_HOSTNAME "echo Hello World"
+      - run:
           name: Setup VirtualEnv
           command: |
             echo 'export TAG=0.1.${CIRCLE_BUILD_NUM}' >> $BASH_ENV
@@ -30,9 +33,6 @@ jobs:
             docker build -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG .
             echo "$DOCKERHUB_PASSWORD" | docker login --username $DOCKERHUB_USERNAME --password-stdin
             docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:$TAG
-      - run:
-          name: Show directory contents
-          command: ls -la
       - run:
           name: Deploy app to Digital Ocean Server via Docker
           command: |
