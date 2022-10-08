@@ -20,8 +20,8 @@ fi
 
 echo "Deploying $CONTAINER_NAME to Docker Container"
 
-#Check for running container & stop it before starting a new one
-if [ $(docker inspect -f '{{.State.Running}}' $CONTAINER_NAME) = "true" ]; then
+#Check for running container and stop it before starting a new one
+if [ $(docker inspect -f '{{.State.Running}}' $CONTAINER_NAME 2> /dev/null) = "true" ]; then
     docker stop $CONAINER_NAME
 fi
 
