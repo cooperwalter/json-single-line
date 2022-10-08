@@ -11,7 +11,7 @@
 set -e
 
 DOCKER_IMAGE=$1
-CONAINER_NAME="json-single-line-converter-container"
+CONTAINER_NAME="json-single-line-converter-container"
 
 # Check for arguments
 if [[ $# -lt 1 ]] ; then
