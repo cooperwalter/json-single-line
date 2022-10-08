@@ -5,14 +5,14 @@
 # NOTE: This script is intended to be fully executed *once* in the remote host for this project.
 
 # check if Docker is already installed. If so, skip this scripte
-docker ps 2> tmp.txt
-if [ -s tmp.txt ]
+docker ps 1> succ.txt 2> /dev/null
+if [ -s     succ.txt ]
 then
     echo "Docker is already installed. Skipping this script."
-    rm tmp.txt
+    rm succ.txt
     exit 0
 fi
-rm tmp.txt
+rm succ.txt
 
 # update existing list of pacakges
 sudo apt update -y
