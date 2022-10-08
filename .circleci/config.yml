@@ -22,8 +22,7 @@ jobs:
           name: Ensure /app directory
           command: |
             echo "$HOST_USER@$HOST_SERVER"
-            # ssh -o StrictHostKeyChecking=no $HOST_USER@$HOST_SERVER "mkdir /app 2> /dev/null"
-            ssh -o StrictHostKeyChecking=no $HOST_USER@$HOST_SERVER "echo Huh"
+            ssh -o StrictHostKeyChecking=no $HOST_USER@$HOST_SERVER "mkdir /app 2> /dev/null" | true
       # - run:
       #     name: Install Docker (If not already installed)
       #     command: |
