@@ -60,8 +60,8 @@ function App() {
               <div class="flex flex-row items-center">
                 <TextArea
                   class="w-full"
-                  minRows={3}
-                  maxRows={10}
+                  minRows={5}
+                  maxRows={15}
                   placeholder="Single-Line JSON Output"
                   value={input ? parsed : ""}
                 />
