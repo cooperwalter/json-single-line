@@ -1,15 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import React from "react";
 import Typography from "./Typography";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import { IconButton } from "@mui/material";
 import TextArea from "./TextArea";
 import ErrorIcon from "@mui/icons-material/Error";
 
 import multiToSingle from "../utils/multiToSingle";
 import FadeInOut from "./FadeInOut";
-
-const writeToClipboard = (text) => navigator.clipboard.writeText(text);
+import CopyButton from "./CopyButton";
 
 function App() {
   const [input, setInput] = React.useState("");
@@ -65,12 +62,7 @@ function App() {
                   placeholder="Single-Line JSON Output"
                   value={input ? parsed : ""}
                 />
-                <IconButton
-                  class="absolute -right-14 text-white active:text-white/50 p-2"
-                  onClick={() => writeToClipboard(parsed)}
-                >
-                  <ContentCopyIcon fontSize="large" />
-                </IconButton>
+                <CopyButton text={parsed} />
               </div>
             </div>
           </FadeInOut>
